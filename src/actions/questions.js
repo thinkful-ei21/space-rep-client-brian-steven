@@ -1,4 +1,4 @@
-import API_BASE_URL from './config';
+import {API_BASE_URL} from '../config';
 export const FETCH_QUESTIONS_REQUEST = 'FETCH_QUESTIONS_REQUEST';
 export const fetchQuestionsRequest = () => ({
   type: FETCH_QUESTIONS_REQUEST
