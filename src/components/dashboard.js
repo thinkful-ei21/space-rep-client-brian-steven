@@ -2,10 +2,14 @@ import React from 'react';
 import {connect} from 'react-redux';
 import requiresLogin from './requires-login';
 import {fetchProtectedData} from '../actions/protected-data';
-
+import fetchQuestions from '../actions/questions'
 export class Dashboard extends React.Component {
     componentDidMount() {
         this.props.dispatch(fetchProtectedData());
+    }
+
+    onSubmit(){
+      this.props.dispatch(fetchQuestions());
     }
 
     render() {
@@ -18,6 +22,7 @@ export class Dashboard extends React.Component {
                 <div className="dashboard-protected-data">
                     Protected data: {this.props.protectedData}
                 </div>
+                <button onClick={() => onSubmit()}></button>
             </div>
         );
     }
