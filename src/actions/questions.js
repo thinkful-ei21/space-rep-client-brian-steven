@@ -19,7 +19,7 @@ export const fetchQuestionsError = error => ({
 ///need BASE URL IMPORT
 export const fetchQuestions = () => dispatch => {
   dispatch(fetchQuestionsRequest());
-  return fetch(`${API_BASE_URL}`).then(res => {
+  return fetch(`${API_BASE_URL}/api/questions/`).then(res => {
     if(!res.ok){
       return Promise.reject(res.statusText)
     }
