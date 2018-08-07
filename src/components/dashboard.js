@@ -8,7 +8,9 @@ export class Dashboard extends React.Component {
         this.props.dispatch(fetchProtectedData());
     }
 
-    onSubmit(){
+    onSubmit(e){
+      e.preventDefault()
+      console.log("getting questions clicked")
       this.props.dispatch(fetchQuestions());
     }
 
@@ -22,7 +24,7 @@ export class Dashboard extends React.Component {
                 <div className="dashboard-protected-data">
                     Protected data: {this.props.protectedData}
                 </div>
-                <button onClick={() => this.onSubmit()}></button>
+                <button onClick={(e) => this.onSubmit(e)}></button>
             </div>
         );
     }
