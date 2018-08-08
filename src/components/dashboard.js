@@ -11,8 +11,8 @@ export class Dashboard extends React.Component {
 
     onSubmit(e){
       e.preventDefault()
-      console.log("getting questions clicked")
-      this.props.dispatch(fetchQuestions());
+      // console.log("getting questions clicked")
+      // this.props.dispatch(fetchQuestions());
     }
 
     render() {
