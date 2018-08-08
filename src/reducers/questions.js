@@ -8,7 +8,7 @@ const initialState = {
   questions: [],
   fetchloading: false,
   fetcherror: null,
-  count: 0
+  //count: 0
 };
 
 export const reducer = (state = initialState, action) => {
@@ -23,7 +23,7 @@ export const reducer = (state = initialState, action) => {
       fetchloading: false,
       fetcherror: null,
       questions: action.questions,
-      count: count + 1
+      //count: count + 1
     })
   } if (action.type === FETCH_QUESTIONS_ERROR){
     return Object.assign({}, state, {
