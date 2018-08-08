@@ -11,7 +11,7 @@ const initialState = {
 };
 
 export const reducer = (state = initialState, action) => {
-  console.log(state, action)
+  // console.log(state, action)
   if(action.type === FETCH_QUESTIONS_REQUEST){
     return Object.assign({}, state, {
       fetchloading: true,
