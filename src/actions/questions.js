@@ -32,3 +32,24 @@ export const fetchQuestions = () => dispatch => {
     dispatch(fetchQuestionsError(error));
   });
 };
+
+export const postAnswer = (answer) => dispatch => {
+  dispatch(postAnswerRequest());
+  return fetch(`${API_BASE_URL}/questions/${answer.id}`, {
+    method: 'PUT',
+    headers: {
+      "Content-Types": "application/json"
+    },
+    body: answer
+  })
+  .then(res => {
+    if(!res.ok) {
+      return Promise.reject(res.statusText);
+    }
+    return res.json();
+  })
+  .then(questions => dispatch(fetchQuestionsSuccess(questions)))
+  .catch(error => {
+    dispatch(fetchQuestionsError(error));
+  });
+};

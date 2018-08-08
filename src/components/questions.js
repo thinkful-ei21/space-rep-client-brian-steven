@@ -10,7 +10,12 @@ class Questions extends React.Component {
   }
 
   onClick(e) {
-    console.log(this.textAnswer.value);
+    const answer = {
+      id: this.props.question.id,
+      question: this.props.question.question,
+      answer: this.textAnswer.value.trim()
+    };
+    this.props.dispatch(postAnswer(answer));
   }
  
   render() {
