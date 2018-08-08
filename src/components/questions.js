@@ -21,7 +21,7 @@ class Questions extends React.Component {
     return(
       <div>
         {question}
-        <input type="text" ref={this.textAnswer}></input>
+        <input type="text" ref={input => this.textAnswer = input}></input>
         <button type="button" onClick={e => this.onClick(e)}>Submit Answer</button>
       </div>
     );
