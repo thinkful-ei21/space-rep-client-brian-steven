@@ -10,7 +10,7 @@ class Questions extends React.Component {
   }
 
   onClick(e) {
-    console.log(this.textAnswer);
+    console.log(this.textAnswer.value);
   }
  
   render() {
