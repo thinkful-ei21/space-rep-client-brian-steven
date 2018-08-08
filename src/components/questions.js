@@ -7,14 +7,14 @@ class Questions extends React.Component {
   componentDidMount() {
     // console.log("component mounted")
       this.props.dispatch(fetchQuestions());
-      console.log(this.props.question);
+      console.log(this.props);
   }
  
   render() {
-
-    const question = this.props.question ? this.props.question.map((question, index) =>{
-      return (<div key={index}> <li>{question.question}</li></div>);
-    }) : "";
+    const question = "";
+    // const question = this.props.question ? this.props.question.map((question, index) =>{
+    //   return (<div key={index}> <li>{question.question}</li></div>);
+    // }) : "";
     return(
       <div>
         {question}
