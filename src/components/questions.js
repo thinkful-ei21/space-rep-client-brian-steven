@@ -11,9 +11,9 @@ class Questions extends React.Component {
 
   render() {
 
-    const question = this.props.question.map((question, index) =>{
+    const question = this.props.question ? this.props.question.map((question, index) =>{
       return (<div key={index}> <li>{question.question}</li></div>);
-    });
+    }) : "";
     return(
       <div>
         {question}
