@@ -1,4 +1,4 @@
-export default const questions = [
+const questions = [
 	{
 		"question": "los calcetines",
 		"answer": "socks"
@@ -40,3 +40,5 @@ export default const questions = [
 		"answer": "monkey"
 	}
 ];
+
+export default questions  
