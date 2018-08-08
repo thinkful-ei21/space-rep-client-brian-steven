@@ -25,7 +25,7 @@ export const fetchQuestions = () => dispatch => {
     }
     return res.json();
   }).then(questions => {
-    console.log(questions);
+    // console.log(questions);
     dispatch(fetchQuestionsSuccess(questions));
   }).catch(error => {
     console.log(error);

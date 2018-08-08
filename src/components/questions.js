@@ -6,7 +6,12 @@ class Questions extends React.Component {
 
   componentDidMount() {
     // console.log("component mounted")
+      this.textAnswer = React.createRef();
       this.props.dispatch(fetchQuestions());
+  }
+
+  onClick(e) {
+    console.log(this.textAnswer);
   }
  
   render() {
@@ -16,7 +21,8 @@ class Questions extends React.Component {
     return(
       <div>
         {question}
-        <input type="text" ></input>
+        <input type="text" ref={this.textAnswer}></input>
+        <button type="button" onClick={e => this.onClick(e)}>Submit Answer</button>
       </div>
     );
   }
