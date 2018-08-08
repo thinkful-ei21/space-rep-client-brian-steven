@@ -5,7 +5,7 @@ import {
 } from '../actions/questions'
 
 const initialState = {
-  questions: null,
+  questions: [],
   fetchloading: false,
   fetcherror: null
 };
