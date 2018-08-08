@@ -7,11 +7,11 @@ class Questions extends React.Component {
   componentDidMount() {
     // console.log("component mounted")
       this.props.dispatch(fetchQuestions());
-      console.log(this.props);
   }
  
   render() {
     const question = "";
+    console.log(this.props);
     // const question = this.props.question ? this.props.question.map((question, index) =>{
     //   return (<div key={index}> <li>{question.question}</li></div>);
     // }) : "";
@@ -25,7 +25,7 @@ class Questions extends React.Component {
 }
 const mapStateToProps = function(state){
   return {
-    question: state.question
+    question: state.question.questions
   };
 };
 
