@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {fetchQuestions} from '../actions/questions'
+import {fetchQuestions, postAnswer} from '../actions/questions'
 
 class Questions extends React.Component {
 
