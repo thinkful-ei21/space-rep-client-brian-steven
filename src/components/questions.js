@@ -5,10 +5,11 @@ import {fetchQuestions} from '../actions/questions'
 class Questions extends React.Component {
 
   componentDidMount() {
-    console.log("component mounted")
+    // console.log("component mounted")
       this.props.dispatch(fetchQuestions());
+      console.log(this.props.question);
   }
-
+ 
   render() {
 
     const question = this.props.question ? this.props.question.map((question, index) =>{
