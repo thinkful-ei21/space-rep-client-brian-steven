@@ -63,5 +63,5 @@ export const postAnswer = (answer) => dispatch => {
   .then(questions => dispatch(fetchQuestionsSuccess(questions)))
   .catch(error => {
     dispatch(fetchQuestionsError(error));
-//   });
-// };
+  });
+};
