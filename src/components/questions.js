@@ -6,7 +6,6 @@ class Questions extends React.Component {
 
   componentDidMount() {
     // console.log("component mounted")
-      this.textAnswer = React.createRef();
       this.props.dispatch(fetchQuestions());
   }
 
