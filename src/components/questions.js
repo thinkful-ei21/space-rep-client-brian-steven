@@ -5,12 +5,13 @@ import {fetchQuestions} from '../actions/questions'
 class Questions extends React.Component {
 
   componentDidMount() {
+    console.log("component mounted")
       this.props.dispatch(fetchQuestions());
   }
 
   render(){
 
-    const question = this.props.question.map((question, index) =>
+    const question = this.props.question.map((question, index) =>{
   (<div key={index}>   <li>{question.question}</li></div>));
 
     return(
