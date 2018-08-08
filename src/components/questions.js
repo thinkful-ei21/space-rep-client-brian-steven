@@ -9,18 +9,18 @@ class Questions extends React.Component {
       this.props.dispatch(fetchQuestions());
   }
 
-  render(){
+  render() {
 
     const question = this.props.question.map((question, index) =>{
-  (<div key={index}>   <li>{question.question}</li></div>));
-
+      return (<div key={index}> <li>{question.question}</li></div>);
+    });
     return(
       <div>
         {question}
         <input type="text" ></input>
       </div>
-    )
-}
+    );
+  }
 }
 const mapStateToProps = function(state){
   return {
