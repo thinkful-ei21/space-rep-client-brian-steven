@@ -25,7 +25,7 @@ class Questions extends React.Component {
 }
 const mapStateToProps = function(state){
   return {
-    question: state.question.questions
+    question: state.question
   };
 };
 

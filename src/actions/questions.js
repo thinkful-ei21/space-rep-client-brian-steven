@@ -24,9 +24,9 @@ export const fetchQuestions = () => dispatch => {
       return Promise.reject(res.statusText)
     }
     return res.json();
-  }).then(question => {
-    console.log(question);
-    dispatch(fetchQuestionsSuccess(question));
+  }).then(questions => {
+    console.log(questions);
+    dispatch(fetchQuestionsSuccess(questions));
   }).catch(error => {
     console.log(error);
     dispatch(fetchQuestionsError(error));
