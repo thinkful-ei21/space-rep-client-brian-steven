@@ -19,11 +19,13 @@ export const fetchQuestionsError = error => ({
 ///need BASE URL IMPORT
 export const fetchQuestions = () => dispatch => {
   dispatch(fetchQuestionsRequest());
-  return fetch(`${API_BASE_URL}/questions/`).then(res => {
-    if(!res.ok){
-      return Promise.reject(res.statusText)
-    }
-    return res.json();
+  const questions = require('../questions');
+  return questions;
+  // return fetch(`${API_BASE_URL}/questions/`).then(res => {
+  //   if(!res.ok){
+  //     return Promise.reject(res.statusText)
+  //   }
+  //   return res.json();
   }).then(questions => {
     // console.log(questions);
     dispatch(fetchQuestionsSuccess(questions));
