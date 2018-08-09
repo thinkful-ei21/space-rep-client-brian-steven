@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {fetchQuestions, postAnswer} from '../actions/questions'
+import {fetchQuestions} from '../actions/questions'
+import {postAnswer} from '../actions/answers'
 
 class Questions extends React.Component {
 
@@ -8,16 +9,21 @@ class Questions extends React.Component {
     // console.log("component mounted")
       this.props.dispatch(fetchQuestions());
   }
-
+///on click should not dispatch a question
   onClick(e) {
     const answer = {
-      id: this.props.question.id,
-      question: this.props.question.question,
+      id: this.props.id,
+      // question: this.props.question.question,
       answer: this.textAnswer.value.trim()
     };
-    this.props.dispatch(postAnswer(answer));
-    console.log(answer);
+    this.props.dispatch(postAnswer(answer ));
+    console.log(answer.answer );
   }
+
+  // onShowAnswer(e){
+  //   let this.props.answers
+  // }
+  //<button type="button" onClick={e => this.onShowAnswer(e)}>give up</button>
 
   render() {
     const question = this.props.question ? [this.props.question].map((question, index) =>{
@@ -26,6 +32,7 @@ class Questions extends React.Component {
     return(
       <div>
         {question}
+        {this.props.answers}
         <input type="text" ref={input => this.textAnswer = input}></input>
         <button type="button" onClick={e => this.onClick(e)}>Submit Answer</button>
       </div>
@@ -33,8 +40,11 @@ class Questions extends React.Component {
   }
 }
 const mapStateToProps = function(state){
+  const {currentUser} = state.auth;
   return {
-    question: state.question.questions
+    id: state.auth.currentUser.id,
+    question: state.question.questions,
+    answers: state.answers.answers
   };
 };
 
