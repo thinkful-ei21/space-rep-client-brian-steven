@@ -16,8 +16,9 @@ class Questions extends React.Component {
       answer: this.textAnswer.value.trim()
     };
     this.props.dispatch(postAnswer(answer));
+    console.log(answer);
   }
- 
+
   render() {
     const question = this.props.question ? [this.props.question].map((question, index) =>{
       return (<div key={index}> <li>{question.question}</li></div>);
