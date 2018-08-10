@@ -6,3 +6,7 @@ body {
 .home {
 	margin-left:20px;
 }
+.header-bar {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
