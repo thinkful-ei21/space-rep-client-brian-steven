@@ -40,9 +40,10 @@ export const fetchQuestions = (id) => dispatch => {
     }
     return res.json();
   }).then(questions => {
-console.log("fetch")
- console.log(questions)
-    dispatch(fetchQuestionsSuccess(questions));
+    return dispatch(fetchNextQuestionSuccess(questions));
+// console.log("fetch")
+//  console.log(questions)
+//     dispatch(fetchQuestionsSuccess(questions));
   }).catch(error => {
     console.log(error);
     dispatch(fetchQuestionsError(error));
