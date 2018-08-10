@@ -34,11 +34,17 @@ class Questions extends React.Component {
   //{this.props.answers}
   render() {
     return(
-      <div>
-        <h3>{this.props.question.question}</h3>
-
-        <input type="text" ref={input => this.textAnswer = input}></input>
-        <button className="submit" type="button" onClick={e => this.onClick(e)}>Submit Answer</button>
+      <div class="quiz-area">
+        <div class="question-form">
+          <h3>{this.props.question.question}</h3>
+          <input type="text" ref={input => this.textAnswer = input}></input>
+          <button className="submit" type="button" onClick={e => this.onClick(e)}>Submit Answer</button>
+        </div>
+        <div class="quiz-status">
+          <h3 class="correct-count">{`# Correct: ${this.props.numCorrect}`}</h3>
+          <h3 class="incorrect-count">{`# Incorrect: ${this.props.numIncorrect}`}</h3>
+          <h3 class="last-answer">{`Last answer: ${this.props.lastAnswer ? "Correct" : "Incorrect"}`}</h3>
+        </div>
       </div>
     );
   }
@@ -49,6 +55,9 @@ const mapStateToProps = function(state){
   return {
     id: state.auth.currentUser.id,
     question: state.question.questions,
+    numCorrect: state.question.numCorrect,
+    numIncorrect: state.question.numIncorrect,
+    lastAnswer: state.question.lastAnswer,
     answers: state.answers.answers
   };
 };

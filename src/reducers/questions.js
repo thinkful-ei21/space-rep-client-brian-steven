@@ -9,7 +9,9 @@ const initialState = {
   questions: {},
   fetchloading: false,
   fetcherror: null,
-  //count: 0
+  numCorrect: 0,
+  numIncorrect: 0,
+  lastAnswer: false
 };
 
 export const reducer = (state = initialState, action) => {
