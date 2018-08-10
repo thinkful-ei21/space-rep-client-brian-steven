@@ -1,6 +1,7 @@
 import {
   FETCH_QUESTIONS_REQUEST,
   FETCH_QUESTIONS_SUCCESS,
+  FETCH_NEXT_QUESTION_SUCCESS,
   FETCH_QUESTIONS_ERROR
 } from '../actions/questions'
 
@@ -22,8 +23,7 @@ export const reducer = (state = initialState, action) => {
     return Object.assign({}, state, {
       fetchloading: false,
       fetcherror: null,
-      questions: action.questions.question,
-      //count: count + 1
+      questions: action.questions.question
     })
   } if (action.type === FETCH_NEXT_QUESTION_SUCCESS) {
     return Object.assign({}, state, {

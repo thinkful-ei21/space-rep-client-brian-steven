@@ -14,6 +14,12 @@ export const fetchQuestionsSuccess = questions => ({
   questions
 });
 
+export const FETCH_NEXT_QUESTION_SUCCESS = 'FETCH_NEXT_QUESTION_SUCCESS';
+export const fetchNextQuestionSuccess = questions => ({
+  type: FETCH_NEXT_QUESTION_SUCCESS,
+  questions
+});
+
 export const FETCH_QUESTIONS_ERROR = 'FETCH_QUESTIONS_ERROR';
 export const fetchQuestionsError = error => ({
   type: FETCH_QUESTIONS_ERROR,
