@@ -10,7 +10,7 @@ const initialState = {
   senderror: null,
 
 };
-
+ 
 export const reducer = (state = initialState, action) => {
 
   if(action.type === SEND_ANSWERS_REQUEST){
