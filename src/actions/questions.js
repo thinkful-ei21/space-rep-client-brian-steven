@@ -25,9 +25,10 @@ export const fetchQuestionsError = error => ({
 //   type: FETCH_QUESTIONS_SUCCESS,
 //   questions
 // });
-export const fetchQuestions = () => dispatch => {
+export const fetchQuestions = (id) => dispatch => {
   dispatch(fetchQuestionsRequest());
-  return fetch(`${API_BASE_URL}/questions/`).then(res => {
+  console.log(id)
+  return fetch(`${API_BASE_URL}/users/${id}`).then(res => {
     if(!res.ok){
       return Promise.reject(res.statusText)
     }

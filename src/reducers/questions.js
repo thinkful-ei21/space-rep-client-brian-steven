@@ -5,14 +5,14 @@ import {
 } from '../actions/questions'
 
 const initialState = {
-  questions: [],
+  questions: {},
   fetchloading: false,
   fetcherror: null,
   //count: 0
 };
 
 export const reducer = (state = initialState, action) => {
-   console.log(state, action)
+   //console.log(state, action)
   if(action.type === FETCH_QUESTIONS_REQUEST){
     return Object.assign({}, state, {
       fetchloading: true,
@@ -22,7 +22,7 @@ export const reducer = (state = initialState, action) => {
     return Object.assign({}, state, {
       fetchloading: false,
       fetcherror: null,
-      questions: [action.questions.question],
+      questions: action.questions.question,
       //count: count + 1
     })
   } if (action.type === FETCH_QUESTIONS_ERROR){

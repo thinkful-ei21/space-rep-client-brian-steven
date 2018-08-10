@@ -2,12 +2,12 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {fetchQuestions} from '../actions/questions'
 import {postAnswer} from '../actions/answers'
-
+import './questions.css'
 class Questions extends React.Component {
 
   componentDidMount() {
     // console.log("component mounted")
-      this.props.dispatch(fetchQuestions());
+      this.props.dispatch(fetchQuestions(this.props.id));
 
   }
 ///on click should not dispatch a question
@@ -17,9 +17,9 @@ class Questions extends React.Component {
       // question: this.props.question.question,
       answer: this.textAnswer.value.trim()
     };
-    this.props.dispatch(postAnswer(answer ));
-    console.log(answer.answer );
-    console.log(this.props.question.questions);
+    this.props.dispatch(postAnswer(answer,this.props.id ));
+    //this.props.dispatch(fetchQuestions(this.props.id));
+
   }
 
   // onShowAnswer(e){
@@ -30,15 +30,15 @@ class Questions extends React.Component {
   //   return (<div key={index}> <li>{question.question}</li></div>);
   // }) : "";
   //<button type="button" onClick={e => this.onShowAnswer(e)}>give up</button>
-
+  //{this.props.answers}
   render() {
 
     return(
       <div>
-        {this.props.question.question}
-        {this.props.answers}
+        <h3>{this.props.question.question}</h3>
+
         <input type="text" ref={input => this.textAnswer = input}></input>
-        <button type="button" onClick={e => this.onClick(e)}>Submit Answer</button>
+        <button className="submit" type="button" onClick={e => this.onClick(e)}>Submit Answer</button>
       </div>
     );
   }

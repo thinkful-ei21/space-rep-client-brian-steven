@@ -1,5 +1,5 @@
 import {API_BASE_URL} from '../config';
-
+import {fetchQuestions} from './questions';
 export const SEND_ANSWERS_REQUEST = 'SEND_ANSWERS_REQUEST';
 export const sendAnswersRequest = () => ({
   type: SEND_ANSWERS_REQUEST
@@ -18,7 +18,7 @@ export const sendAnswersError = error => ({
 });
 
 
-export const postAnswer = (answers) => (dispatch,getState) => {
+export const postAnswer = (answers, id) => (dispatch,getState) => {
   dispatch(sendAnswersRequest());
   const state = getState();
   return fetch(`${API_BASE_URL}/questions/answer/`, {
@@ -35,7 +35,12 @@ export const postAnswer = (answers) => (dispatch,getState) => {
     }
     return res.json();
   })
-  .then(answers => dispatch(sendAnswersSuccess(answers.answer)))
+  .then(answers => {
+    //dispatch(sendAnswersSuccess(answers.answer))
+console.log(fetchQuestions)
+    return dispatch(fetchQuestions(id))
+  })
+
   .catch(error => {
     dispatch(sendAnswersError(error));
   });

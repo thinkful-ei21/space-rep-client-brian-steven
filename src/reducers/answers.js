@@ -12,7 +12,7 @@ const initialState = {
 };
 
 export const reducer = (state = initialState, action) => {
-  // console.log(state, action)
+
   if(action.type === SEND_ANSWERS_REQUEST){
     return Object.assign({}, state, {
       sendloading: true,

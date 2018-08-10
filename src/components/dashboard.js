@@ -20,7 +20,7 @@ export class Dashboard extends React.Component {
         return (
             <div className="dashboard">
                 <div className="dashboard-username">
-                    Please start the quiz, {this.props.username}
+                    <h3>Please start the quiz, {this.props.username}</h3>
 
                 </div>
                 <div className="dashboard-name">Name: {this.props.name}</div>
