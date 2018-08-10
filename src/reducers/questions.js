@@ -25,8 +25,6 @@ export const reducer = (state = initialState, action) => {
       questions: action.questions.question,
       //count: count + 1
     })
-<<<<<<< Updated upstream
-=======
   } if (action.type === FETCH_NEXT_QUESTION_SUCCESS) {
     return Object.assign({}, state, {
       fetchloading: false,
@@ -36,7 +34,6 @@ export const reducer = (state = initialState, action) => {
       numIncorrect: action.questions.lastAnswer ? state.numIncorrect : state.numIncorrect+1,
       lastAnswer: action.questions.lastAnswer
     })
->>>>>>> Stashed changes
   } if (action.type === FETCH_QUESTIONS_ERROR){
     return Object.assign({}, state, {
       fetchloading: true,
