@@ -14,5 +14,17 @@
   text-shadow: 2px 2px black;
 }
 .log-out{
+  padding: 5px 5px;
+    margin: 0px 10px 10px 0px;
+    border-radius: 5px;
+    font-size: 25px;
+    background-color: navy;
+    border-bottom: 5px solid gray;
+	color: white;
+	text-decoration: none;
+}
 
+.log-out:active {
+	transform: translate(0px,5px);
+	border-bottom: 1px solid;
 }

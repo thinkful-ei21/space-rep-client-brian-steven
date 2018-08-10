@@ -15,13 +15,13 @@ export class Dashboard extends React.Component {
       // console.log("getting questions clicked")
       // this.props.dispatch(fetchQuestions());
     }
-
+//id: {this.props.id}
     render() {
         return (
             <div className="dashboard">
                 <div className="dashboard-username">
-                    Username: {this.props.username}
-                    id: {this.props.id}
+                    Please start the quiz, {this.props.username}
+
                 </div>
                 <div className="dashboard-name">Name: {this.props.name}</div>
                 <div className="dashboard-protected-data">
