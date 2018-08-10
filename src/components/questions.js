@@ -12,10 +12,11 @@ class Questions extends React.Component {
   }
 ///on click should not dispatch a question
   onClick(e) {
+    console.log(this.textAnswer.value);
     const answer = {
       id: this.props.id,
       // question: this.props.question.question,
-      answer: this.textAnswer.value.trim()
+      userAnswer: this.textAnswer.value.trim()
     };
     this.props.dispatch(postAnswer(answer,this.props.id ));
     //this.props.dispatch(fetchQuestions(this.props.id));
@@ -32,7 +33,6 @@ class Questions extends React.Component {
   //<button type="button" onClick={e => this.onShowAnswer(e)}>give up</button>
   //{this.props.answers}
   render() {
-
     return(
       <div>
         <h3>{this.props.question.question}</h3>
@@ -45,6 +45,7 @@ class Questions extends React.Component {
 }
 const mapStateToProps = function(state){
   const {currentUser} = state.auth;
+  console.log(state.question);
   return {
     id: state.auth.currentUser.id,
     question: state.question.questions,

@@ -10,3 +10,9 @@ body {
 	padding-top: 10px;
 	padding-bottom: 10px;
 }
+.question-form {
+	width: 30%;
+}
+.quiz-status {
+	width: 30%;
+}
