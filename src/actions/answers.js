@@ -24,7 +24,7 @@ export const postAnswer = (answers) => (dispatch,getState) => {
   return fetch(`${API_BASE_URL}/questions/answer/`, {
     method: 'POST',
     headers: {
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
       "Authorization": `Bearer ${state.auth.authToken}`
     },
     body: JSON.stringify(answers)
