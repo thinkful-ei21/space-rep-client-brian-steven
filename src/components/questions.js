@@ -15,7 +15,7 @@ class Questions extends React.Component {
     const answer = {
       id: this.props.id,
       // question: this.props.question.question,
-      answer: this.textAnswer.value.trim()
+      userAnswer: this.textAnswer.value.trim()
     };
     this.props.dispatch(postAnswer(answer,this.props.id ));
     //this.props.dispatch(fetchQuestions(this.props.id));
@@ -32,18 +32,17 @@ class Questions extends React.Component {
   //<button type="button" onClick={e => this.onShowAnswer(e)}>give up</button>
   //{this.props.answers}
   render() {
-
+    console.log(this.props);
     return(
       <div className="quiz-area">
         <div className="question-form">
-          <h3>{this.props.question.question}</h3>
-
+          <h3>{this.props.question ? this.props.question.question : ""}</h3>
           <input type="text" ref={input => this.textAnswer = input}></input>
           <button className="submit" type="button" onClick={e => this.onClick(e)}>Submit Answer</button>
         </div>
         <div className="quiz-status">
-          <h3 className="correct-count">{`# Correct: ${this.props.numCorrect}`}</h3>
-          <h3 className="incorrect-count">{`# Incorrect: ${this.props.numIncorrect}`}</h3>
+          <h3 className="correct-count">{`# Correct: ${this.props.numCorrect || 0}`}</h3>
+          <h3 className="incorrect-count">{`# Incorrect: ${this.props.numIncorrect || 0}`}</h3>
           <h3 className="last-answer">{`Last answer: ${this.props.lastAnswer ? "Correct" : "Incorrect"}`}</h3>
         </div>
       </div>
@@ -51,10 +50,11 @@ class Questions extends React.Component {
   }
 }
 const mapStateToProps = function(state){
+  console.log(state.question);
   const {currentUser} = state.auth;
   return {
     id: state.auth.currentUser.id,
-    question: state.question.questions,
+    question: state.question.question,
     numCorrect: state.question.numCorrect,
     numIncorrect: state.question.numIncorrect,
     lastAnswer: state.question.lastAnswer,

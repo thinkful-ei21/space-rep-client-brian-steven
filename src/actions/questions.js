@@ -1,6 +1,6 @@
 import {API_BASE_URL} from '../config';
 import questions from '../questions-list-json';
-console.log(...questions);
+// console.log(...questions);
 
 
 export const FETCH_QUESTIONS_REQUEST = 'FETCH_QUESTIONS_REQUEST';
@@ -9,15 +9,15 @@ export const fetchQuestionsRequest = () => ({
 });
 
 export const FETCH_QUESTIONS_SUCCESS = 'FETCH_QUESTIONS_SUCCESS';
-export const fetchQuestionsSuccess = questions => ({
+export const fetchQuestionsSuccess = question => ({
   type: FETCH_QUESTIONS_SUCCESS,
-  questions
+  question
 });
 
 export const FETCH_NEXT_QUESTION_SUCCESS = 'FETCH_NEXT_QUESTION_SUCCESS';
-export const fetchNextQuestionSuccess = questions => ({
+export const fetchNextQuestionSuccess = question => ({
   type: FETCH_NEXT_QUESTION_SUCCESS,
-  questions
+  question
 })
 
 export const FETCH_QUESTIONS_ERROR = 'FETCH_QUESTIONS_ERROR';
@@ -39,10 +39,10 @@ export const fetchQuestions = (id) => dispatch => {
       return Promise.reject(res.statusText)
     }
     return res.json();
-  }).then(questions => {
+  }).then(question => {
 // console.log("fetch")
 //  console.log(questions)
-    dispatch(fetchQuestionsSuccess(questions));
+    dispatch(fetchQuestionsSuccess(question));
   }).catch(error => {
     console.log(error);
     dispatch(fetchQuestionsError(error));

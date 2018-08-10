@@ -6,7 +6,7 @@ import {
 } from '../actions/questions'
 
 const initialState = {
-  questions: {},
+  question: null,
   fetchloading: false,
   fetcherror: null,
   numCorrect: 0,
@@ -15,7 +15,6 @@ const initialState = {
 };
 
 export const reducer = (state = initialState, action) => {
-   //console.log(state, action)
   if(action.type === FETCH_QUESTIONS_REQUEST){
     return Object.assign({}, state, {
       fetchloading: true,
@@ -25,7 +24,7 @@ export const reducer = (state = initialState, action) => {
     return Object.assign({}, state, {
       fetchloading: false,
       fetcherror: null,
-      questions: action.questions.question,
+      question: action.question.question,
       //count: count + 1
     })
   } if (action.type === FETCH_NEXT_QUESTION_SUCCESS) {
@@ -33,10 +32,10 @@ export const reducer = (state = initialState, action) => {
     return Object.assign({}, state, {
       fetchloading: false,
       fetcherror: null,
-      questions: action.questions.nextQuestion,
-      numCorrect: action.questions.lastAnswer ? state.numCorrect++ : state.numCorrect,
-      numIncorrect: action.questions.lastAnswer ? state.numIncorrect : state.numIncorrect++,
-      lastAnswer: action.questions.lastAnswer
+      question: action.question.nextQuestion,
+      numCorrect: action.question.lastAnswer ? state.numCorrect+1 : state.numCorrect,
+      numIncorrect: action.question.lastAnswer ? state.numIncorrect : state.numIncorrect+1,
+      lastAnswer: action.question.lastAnswer
     })
   } if (action.type === FETCH_QUESTIONS_ERROR){
     return Object.assign({}, state, {
